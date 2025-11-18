@@ -5,10 +5,6 @@ import json
 import re
 from openai import OpenAI
 
-
-# -----------------------------
-# Setup
-# -----------------------------
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
 print("API KEY FOUND?", api_key is not None)
@@ -18,10 +14,6 @@ client = OpenAI(api_key=api_key)
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
 
-
-# -----------------------------
-# Utility functions
-# -----------------------------
 def parse_numbered_list(text):
     """Parse simple '1. step' style lists if JSON fails."""
     steps = []
@@ -82,9 +74,6 @@ Return ONLY the JSON. No explanation.
         return [{"id": 1, "task": "AI failed to generate steps.", "done": False}]
 
 
-# -----------------------------
-# Routes
-# -----------------------------
 @app.route("/", methods=["GET", "POST"])
 def onboarding():
     if request.method == "POST":
@@ -171,8 +160,5 @@ def goal_detail(goal_id):
     return render_template("goal_detail.html", goal=goal, steps=steps_to_show)
 
 
-# -----------------------------
-# Run app
-# -----------------------------
 if __name__ == "__main__":
     app.run(debug=True)
