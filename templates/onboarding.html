@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fafbff;
+            margin: 0;
+            padding: 40px;
+            color: #2d2d2d;
+        }
+
+        h1 {
+            font-weight: 700;
+            color: #1f2937;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0px 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        input {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 2px rgba(79,70,229,0.2);
+        }
+
+        button {
+            background: #2563eb;
+            border: none;
+            padding: 10px 18px;
+            color: white;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #1e40af;
+            transform: translateY(-1px);
+        }
+
+        p {
+            color: #6b7280;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Welcome! What's your name?</h1>
+        <form method="POST">
+            <input type="text" name="name" placeholder="Enter your name" required>
+            <button type="submit">Continue</button>
+        </form>
+        <p>Every big achievement starts with a small step. Let’s take yours!</p>
+    </div>
+</body>
+</html>
+
+
