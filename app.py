@@ -159,9 +159,5 @@ def goal_detail(goal_id):
 
     return render_template("goal_detail.html", goal=goal, steps=steps_to_show)
 
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
