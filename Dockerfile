@@ -4,19 +4,16 @@ FROM python:3.11-slim
 # Create a working directory
 WORKDIR /app
 
-# Copy requirements and install them
+# Copy requirements first for caching
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the project files into the container
+# Copy the entire project
 COPY . .
 
-# Expose port 5000 for Flask
-EXPOSE 5000
+# Azure requires port 8000
+EXPOSE 8000
 
-# Environment variables (your real key will be passed at runtime)
-ENV FLASK_ENV=production
-
-# Command to run the app
-CMD ["python", "app.py"]
+# Run with Gunicorn (production server)
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"]
 
