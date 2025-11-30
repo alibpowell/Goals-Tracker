@@ -38,6 +38,8 @@ Goals Tracker is a sleek, user-friendly web app that helps ANYONE define persona
 
 ### Architecture Diagram
 
+![Architecture Diagram](./assets/diagram.png)
+
 ### Models and Services
 
 **Model**
