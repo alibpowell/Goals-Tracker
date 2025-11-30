@@ -1,5 +1,7 @@
 # Goals Tracker
 
+Public URL: https://goals-tracker-sxcd.onrender.com
+
 **A modern, interactive web app for setting, tracking, and completing personal goals with AI-generated step-by-step plans.**
 
 ---
