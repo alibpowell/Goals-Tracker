@@ -7,8 +7,8 @@ Public URL: https://goals-tracker-sxcd.onrender.com
 ---
 
 ## Table of Contents
-- [Overview](#overview)  
-- [Features](#features)  
+- [Executive Summary](#executive-sumamry)  
+- [System Overview](#system-overview)  
 - [Demo](#demo)  
 - [Technologies](#technologies)  
 - [Installation](#installation)  
@@ -20,13 +20,48 @@ Public URL: https://goals-tracker-sxcd.onrender.com
 
 ---
 
-## Overview
+## Executive Summary
 
-Goals Tracker is a sleek, user-friendly web app that helps users define personal goals, generate AI-assisted step-by-step action plans, and track progress visually. The app leverages OpenAI’s GPT API to create actionable tasks and provides a simple interface to check off steps as they’re completed, with a modern and professional design.  
+Goals Tracker is a sleek, user-friendly web app that helps ANYONE define personal goals, generate AI-assisted step-by-step action plans, and track progress visually. The app leverages OpenAI’s GPT API to create actionable tasks and provides a simple interface to check off steps as they’re completed, with a modern and professional design, designed to motivate through basic steps. When you open the app, you enter your name, and are directed to a sleek dashboard, where you can create, track, accomplish, and delete different personal goals. 
 
 ---
 
-## Features
+## System Overview
+
+### Course Concepts
+
+* The project uses Flask to create a web service with multiple routes (`/`, `/home`, `/create_goal`, `/goal/<id>`).
+* It uses environment variables via .env and to securely load the OpenAI API key.
+* This demonstrates proper secret management, and the repo includes a .env.example file with placeholder variables.
+* This project contains a working Dockerfile, and can run via Docker.
+* `requirements.txt` makes for reproducible, easy install.
+
+### Architecture Diagram
+
+### Models and Services
+
+**Model**
+
+This project uses a large language model (LLM) through the OpenAI API:
+* Model: gpt-4o-mini
+* Purpose: Generate goal steps in structured JSON
+* Size: Remotely hosted model (not stored locally)
+* License: OpenAI API (commercial license usage)
+No machine-learning model files (.pkl, .onnx, etc.) are stored in the repository.
+
+**Services**
+
+| Component / Service           | Description                                      | License / Terms              |
+|------------------------------|--------------------------------------------------|------------------------------|
+| **Flask**                    | Web framework used for routing + session logic   | BSD-3 License                |
+| **HTML Templates (Frontend)**| Renders onboarding, home, and goal detail pages  | Original (Author-Created)    |
+| **OpenAI API**               | Generates step-by-step goal plans using LLM      | OpenAI API Terms of Use      |
+| **openai-python library**    | Python client for calling the OpenAI API         | MIT License                  |
+| **python-dotenv**            | Loads environment variables from `.env`          | MIT License                  |
+| **Gunicorn**                 | Production WSGI server for deployment            | MIT License                  |
+| **Docker** (optional credit) | Containerization of the application              | Apache License 2.0           |
+
+### Features
 
 - **Onboarding flow**: Personalize the app with your name.
 - **Goal creation**: Input goal title, description, and deadline.
@@ -38,9 +73,7 @@ Goals Tracker is a sleek, user-friendly web app that helps users define personal
 - **Session-based storage**: Keep track of goals and progress without a database for quick prototyping.
 - **Modern UI**: Clean, colorful, professional interface with responsive forms and buttons.
 
----
-
-## Technologies
+### Technologies
 
 - **Backend:** Python, Flask  
 - **Frontend:** HTML, CSS, JavaScript  
@@ -151,7 +184,7 @@ Goals-Tracker/
 
 ## Liscence and Credits
 
-**Credits**
+### Credits
 
 Flask (BSD License) — web framework
 
@@ -163,9 +196,11 @@ Python 3.14
 
 Render.com — hosting platform
 
-**License** 
+### Liscense
 
-MIT License
+**OpenAI API (commercial license usage)**
+
+**MIT License**
 
 Copyright (c) 2025 Ali
 
