@@ -1,20 +1,21 @@
 # Use a lightweight Python image
 FROM python:3.11-slim
 
-# Create a working directory
+# Set working directory
 WORKDIR /app
 
 # Copy requirements first for caching
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the entire project
+# Copy the rest of the app
 COPY . .
 
-# Azure requires port 8000
-EXPOSE 8000
+# Set default port environment variable
+ENV PORT=5000
 
-# Run with Gunicorn (production server)
+# Expose the port (matches Gunicorn)
+EXPOSE $PORT
+
+# Run with Gunicorn
 CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:$PORT app:app"]
-
-
