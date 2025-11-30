@@ -4,25 +4,7 @@ Public URL: https://goals-tracker-sxcd.onrender.com
 
 **A modern, interactive web app for setting, tracking, and completing personal goals with AI-generated step-by-step plans.**
 
----
-
-## Table of Contents
-- [Executive Summary](#executive-sumamry)  
-- [System Overview](#system-overview)  
-- [How To Run (Local)](#how-to-run-local)  
-- [Technologies](#technologies)  
-- [Installation](#installation)  
-- [Usage](#usage)  
-- [Folder Structure](#folder-structure)  
-- [Configuration](#configuration)  
-- [Future Improvements](#future-improvements)  
-- [License](#license)
-
----
-
-## Executive Summary
-
-Goals Tracker is a sleek, user-friendly web app that helps ANYONE define personal goals, generate AI-assisted step-by-step action plans, and track progress visually. The app leverages OpenAI’s GPT API to create actionable tasks and provides a simple interface to check off steps as they’re completed, with a modern and professional design, designed to motivate through basic steps. When you open the app, you enter your name, and are directed to a sleek dashboard, where you can create, track, accomplish, and delete different personal goals. 
+Goals Tracker is a simple and user-friendly web app that helps anyone set personal goals, generate AI-powered step-by-step action plans, and track progress visually. Using OpenAI’s GPT API, the app creates actionable tasks and lets users check off steps as they complete them. When you open the app, you enter your name and are taken to a clean dashboard where you can create, track, complete, and delete your goals, all within a modern, motivating interface.
 
 ---
 
@@ -43,10 +25,11 @@ Goals Tracker is a sleek, user-friendly web app that helps ANYONE define persona
 ### Course Concepts
 
 * The project uses Flask to create a web service with multiple routes (`/`, `/home`, `/create_goal`, `/goal/<id>`).
+* The app and API send and receive information back and forth formatted as JSON.
 * It uses environment variables via .env and to securely load the OpenAI API key.
 * This demonstrates proper secret management, and the repo includes a .env.example file with placeholder variables.
 * This project contains a working Dockerfile, and can run via Docker.
-* `requirements.txt` makes for reproducible, easy install.
+* `requirements.txt` makes for reproducible, easy installation.
 
 ### Architecture Diagram
 
@@ -119,15 +102,21 @@ Open your browser at `http://127.0.0.1:5000` to start using the app.
 
 ## Design Decisions
 
-**Why this concept?**: I recently had been stuck feeling unproductive, so I decided to take this opportunity to build a web app that could actually help my current situation. I thought about a lot of different concepts that could accomplish this, such as a platform that sends reminders to people, or a voice-interactive chat bot that would give advice, but I settled on my current idea instead. I decided that a web app that lets users specify what they want to accomplish and track goal progress in real time would be the most helpful model for my situation. The other ideas I had seemed either less interactive or less visual, so I deemed them less effective at solving the issue at hand. 
+### Why this concept?
+I recently had been stuck feeling unproductive, so I decided to take this opportunity to build a web app that could actually help my current situation. I thought about a lot of different concepts that could accomplish this, such as a platform that sends reminders to people, or a voice-interactive chat bot that would give advice, but I settled on my current idea instead. I decided that a web app that lets users specify what they want to accomplish and track goal progress in real time would be the most helpful model for my situation. The other ideas I had seemed either less interactive or less visual, so I deemed them less effective at solving the issue at hand. 
 
-**Trade-offs**: This web app performs relatively quickly and does a great job at giving the user direct steps to their goals. The site is modern, easy to use, and actually offers real-world functionality. Since I used one of OpenAI's newer models, I did end up paying a little (under 5 cents for 100+ requests) for their service, however, I think this was worth it, because of the quality responses. As of now, this web app does not save goals or other information if the user is to close the app, nor does it have any sort of central database able to create seperate and specific accounts with saved memory per user. This would be a really cool thing to add in the future, to help scale the web app so that others can effectivley use it in their daily lives, but would require a lot of security integration. Overall, the current app is very easy to maintain at a low cost, however extending it to the general public would present the need for a storage and security update, as well as making users pay to use the app to cover request costs. 
+### Trade-offs
+This web app performs relatively quickly and does a great job at giving the user direct steps to their goals. The site is modern, easy to use, and actually offers real-world functionality. Since I used one of OpenAI's newer models, I did end up paying a little (under 5 cents for 100+ requests) for their service, however, I think this was worth it, because of the quality responses. As of now, this web app does not save goals or other information if the user is to close the app, nor does it have any sort of central database able to create seperate and specific accounts with saved memory per user. This would be a really cool thing to add in the future, to help scale the web app so that others can effectivley use it in their daily lives, but would require a lot of security integration. Overall, the current app is very easy to maintain at a low cost, however extending it to the general public would present the need for a storage and security update, as well as making users pay to use the app to cover request costs. 
 
-**Security/Privacy**: The app is designed to run entirely locally on your computer, so no user information is sent to external servers or stored centrally. All data exists only in the browser session while the app is open, and once the app is closed, any entered goals or information are erased, with no way to log back in or recover data. Since there are no usernames, emails, passwords, or any personally identifiable information, user privacy is fully preserved by design. This local-only architecture ensures that sensitive content, including goal data, never leaves the user’s device.
+### Security/Privacy
+The app is designed to run entirely locally on your computer, so no user information is sent to external servers or stored centrally. All data exists only in the browser session while the app is open, and once the app is closed, any entered goals or information are erased, with no way to log back in or recover data. Since there are no usernames, emails, passwords, or any personally identifiable information, user privacy is fully preserved by design. This local-only architecture ensures that sensitive content, including goal data, never leaves the user’s device.
 
-**Operations**: The app runs entirely locally on a user’s device, so no specific requests or user data are stored. However, overall usage can be monitored via the OpenAI platform, as each API key tracks the number of requests sent, allowing the developer to see aggregate usage without accessing any personal information. Since the app is local-only, scaling is not a concern in its current form, but if the app were extended to support multiple users, a central database, authentication, and additional security measures would be required to handle concurrent access and persistent storage. Known limitations include the ephemeral nature of all data; once the app is closed, goals are lost, and dependency on the OpenAI API, which requires an active internet connection and may introduce latency or rate limits.
+### Operations
+The app runs entirely locally on a user’s device, so no specific requests or user data are stored. However, overall usage can be monitored via the OpenAI platform, as each API key tracks the number of requests sent, allowing the developer to see aggregate usage without accessing any personal information. Since the app is local-only, scaling is not a concern in its current form, but if the app were extended to support multiple users, a central database, authentication, and additional security measures would be required to handle concurrent access and persistent storage. Known limitations include the ephemeral nature of all data; once the app is closed, goals are lost, and dependency on the OpenAI API, which requires an active internet connection and may introduce latency or rate limits.
 
-## Usage
+---
+
+## Usage/Results and Evaluation
 
 ### Onboarding
 Enter your name to personalize your dashboard.
@@ -141,43 +130,13 @@ Go to the goal page and complete tasks one by one. Completed steps are tracked i
 ### Delete Goals
 Use the red **Delete** button on the home page to remove any unwanted goals.
 
----
+![Example of Webpage](./assets/steps.png)
 
-## Folder Structure
-
-```bash
-Goals-Tracker/
-│
-├── app.py               # Flask backend
-├── requirements.txt     # Python dependencies
-├── .env                 # Environment variables (API key) - NOT committed
-├── templates/
-│   ├── onboarding.html
-│   ├── home.html
-│   ├── create_goal.html
-│   └── goal_detail.html
-├── static/
-│   ├── css/
-│   └── js/
-└── venv/                # Virtual environment
-```
+Overall, I think that the app turned out really well, and was a success. As you can see in the image, the design is easy to use and pleasnant to look at, while still functional and able to solve real-world problems. The app, when launched from the link, may take a moment to load, but after that is fully functional at moderate to high speeds. To test the app, I gave the system several of my own inputs and explored all the features of the site, to make sure that it all performed as expected. I also had other people on different devices open the app and try it for themselves, to be sure that user sessions didn't accidentally overlap information, and to make sure it was fully user-friendly. 
 
 ---
 
-## Configuration
-
-- **OpenAI API Key**  
-  Ensure your OpenAI API key is set correctly in `.env`.
-
-- **Styling**  
-  You can customize styling by editing the CSS inside the templates or by linking an external stylesheet.
-
-- **AI Settings**  
-  Adjust the AI model, temperature, or prompt in `app.py` to tweak step generation.
-
----
-
-## Future Improvements
+## Next Steps
 
 - **Persistent Storage**  
   Integrate a database (SQLite/PostgreSQL) for permanent goal tracking.
@@ -194,7 +153,15 @@ Goals-Tracker/
 - **Analytics**  
   Track progress trends over time.
 
-  ---
+---
+
+## Links
+
+**GitHub Repository** - https://github.com/alibpowell/Goals-Tracker
+
+**Public URL** - https://goals-tracker-sxcd.onrender.com/
+
+---
 
 ## Liscence and Credits
 
