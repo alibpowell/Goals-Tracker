@@ -132,7 +132,7 @@ Use the red **Delete** button on the home page to remove any unwanted goals.
 
 ![Example of Webpage](./assets/steps.png)
 
-Overall, I think that the app turned out really well, and was a success. As you can see in the image, the design is easy to use and pleasnant to look at, while still functional and able to solve real-world problems. The app, when launched from the link, may take a moment to load, but after that is fully functional at moderate to high speeds. To test the app, I gave the system several of my own inputs and explored all the features of the site, to make sure that it all performed as expected. I also had other people on different devices open the app and try it for themselves, to be sure that user sessions didn't accidentally overlap information, and to make sure it was fully user-friendly. 
+Overall, I think that the app turned out really well, and was a success. As you can see in the image, the design is easy to use and pleasnant to look at, while still functional and able to solve real-world problems. The app, when launched from the link, may take a moment to load, but after that is fully functional at moderate to high speeds. To test the app, I gave the system several of my own inputs and explored all the features of the site, to make sure that it all performed as expected. I also had other people on different devices open the app and try it for themselves, to be sure that user sessions didn't accidentally overlap information, and to make sure it was fully user-friendly. There is also a built in health check, avalible at `/health`, which should return `status: ok`, to show the application is healthy. 
 
 ---
 
