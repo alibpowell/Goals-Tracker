@@ -159,5 +159,9 @@ def goal_detail(goal_id):
 
     return render_template("goal_detail.html", goal=goal, steps=steps_to_show)
 
+@app.route("/health")
+def health():
+    return {"status": "ok"}, 200
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=False)
